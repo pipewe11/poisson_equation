@@ -78,3 +78,7 @@ x = x[:-1].reshape(nx - 2, ny - 2)
 
 ax = plt.axes(projection='3d')
 ax.plot_surface(gx, gy, x, rstride=1, cstride=1, cmap='viridis', edgecolor='none')
+
+vy, vx = np.gradient(x)
+ax = plt.axes()
+ax.quiver(np.linspace(0, 1, nx - 2), np.linspace(0, 1, ny - 2), -vx, -vy)
